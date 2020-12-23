@@ -1,14 +1,13 @@
 const boom = require('@hapi/boom');
 const cors = require('cors');
 
-process.env.CORS_LIST = '*'
+const Logger = require('../logger');
 
 let whitelist = [];
 try {
-//   whitelist = JSON.parse(process.env.CORS_LIST);
-  whitelist = process.env.CORS_LIST;
+  whitelist = JSON.parse(process.env.CORS_LIST);
 } catch (err) {
-  console.log('CORS_lIST information missing or incorrect, defaulting to []');
+  Logger().warn('CORS_lIST information missing or incorrect, defaulting to []');
 }
 
 const corsFunction = (origin, callback) => {

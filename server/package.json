@@ -1,0 +1,115 @@
+{
+  "_from": "@va/core-ms@1.2.0",
+  "_id": "@va/core-ms@1.2.0",
+  "_inBundle": false,
+  "_integrity": "sha1-6/uwRgTgWpN55DvUFOzLE0kXtV0=",
+  "_location": "/@va/core-ms",
+  "_phantomChildren": {
+    "@hapi/hoek": "8.5.1",
+    "accepts": "1.3.7",
+    "array-flatten": "1.1.1",
+    "body-parser": "1.19.0",
+    "content-disposition": "0.5.3",
+    "content-type": "1.0.4",
+    "cookie": "0.4.0",
+    "cookie-signature": "1.0.6",
+    "depd": "1.1.2",
+    "encodeurl": "1.0.2",
+    "escape-html": "1.0.3",
+    "etag": "1.8.1",
+    "finalhandler": "1.1.2",
+    "fresh": "0.5.2",
+    "merge-descriptors": "1.0.1",
+    "methods": "1.1.2",
+    "object-assign": "4.1.1",
+    "on-finished": "2.3.0",
+    "parseurl": "1.3.3",
+    "path-to-regexp": "0.1.7",
+    "proxy-addr": "2.0.6",
+    "range-parser": "1.2.1",
+    "safe-buffer": "5.1.2",
+    "send": "0.17.1",
+    "serve-static": "1.14.1",
+    "setprototypeof": "1.1.1",
+    "statuses": "1.5.0",
+    "type-is": "1.6.18",
+    "utils-merge": "1.0.1",
+    "vary": "1.1.2"
+  },
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@va/core-ms@1.2.0",
+    "name": "@va/core-ms",
+    "escapedName": "@va%2fcore-ms",
+    "scope": "@va",
+    "rawSpec": "1.2.0",
+    "saveSpec": null,
+    "fetchSpec": "1.2.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://pkgs.dev.azure.com/lbg-cloudfirst/_packaging/va-npm/npm/registry/@va/core-ms/-/core-ms-1.2.0.tgz",
+  "_shasum": "ebfbb04604e05a9379e43bd414eccb134917b55d",
+  "_spec": "@va/core-ms@1.2.0",
+  "_where": "/Users/a9341302/Documents/Azure/services/va-ms-review",
+  "author": {
+    "name": "VA Lab"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@hapi/boom": "^8.0.1",
+    "ajv": "^6.10.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.19",
+    "on-finished": "^2.3.0",
+    "read-pkg": "^5.2.0",
+    "uuid": "^3.3.3",
+    "winston": "^3.2.1"
+  },
+  "deprecated": false,
+  "description": "Base server module for VA Microservices",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^26.0.1",
+    "jest-junit": "^9.0.0",
+    "prettier": "^1.18.2",
+    "swagger-ui-express": "^4.1.2",
+    "yamljs": "^0.3.0"
+  },
+  "jest": {
+    "verbose": true,
+    "coverageDirectory": "coverage/",
+    "collectCoverageFrom": [
+      "lib/**/*.{js,jsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "node_modules/",
+      "dist/",
+      "doc/",
+      "cover/",
+      "index.js"
+    ]
+  },
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "name": "@va/core-ms",
+  "scripts": {
+    "dist": "rm -rf dist && cp -r lib dist && rm -rf `find dist -name *.spec.js` && cp package.json dist/ && cp .npmrc dist/",
+    "format": "prettier --single-quote --trailing-comma es5 --write 'lib/**/*.js'",
+    "format:verify": "prettier --single-quote --trailing-comma es5 --list-different 'lib/**/*.js'",
+    "lint": "eslint lib",
+    "start": "node server.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "version": "1.2.0"
+}

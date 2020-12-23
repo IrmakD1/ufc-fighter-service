@@ -3,17 +3,28 @@ const express = require('express');
 const helmet = require('helmet');
 
 const {
-  errorHandler, cors
-} = require('../middleware');
+  auth,
+  cors,
+  errorHandler,
+  serverStatus,
+  logger,
+} = require('./middleware');
 
 module.exports = apiRouter => {
   const app = express();
-  // checks cors requests against a whitelist
-  app.use(cors());
   // parse http post body JSON into req.body
   app.use(bodyParser.json({ limit: '10mb' }));
   // helmet adds various http headers as a secuirty feature
   app.use(helmet());
+  // checks cors requests against a whitelist
+  app.use(cors());
+  // logs request-level information
+  app.use(logger());
+  // exports a liveness endpoint on '/'
+  const started = new Date();
+  app.use(serverStatus(started));
+  // authentication
+  // app.use(auth());
   // main application router
   app.use('/', apiRouter);
   // error handler - app router should next() errors down to here
