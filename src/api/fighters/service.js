@@ -24,6 +24,20 @@ const getFighters = async (fighterOneId, fighterTwoId, db) => {
     return fighterDetails 
 }
 
+const sortFightersByRank = (fighters) => {
+    let rankingList = []
+
+    _.forEach(fighters, fighter => {
+        if(fighter.rank === 'Champion') {
+            rankingList[0] = fighter
+        } else {
+            rankingList[fighter.rank] = fighter
+        }
+    })
+
+    return rankingList
+}
+
 
 const getWeightClassFighters = async (weight, db) => {
     const allRankedFighters = await store.getAllRankedFighters(db)
@@ -35,7 +49,7 @@ const getWeightClassFighters = async (weight, db) => {
         return ({ ...fighterObj, rank: fighter.rank, weightclass: fighter.weightclass })
     })
     
-    return sortedFighters
+    return sortFightersByRank(sortedFighters)
 } 
 
 module.exports = { getFighters, getWeightClassFighters }
