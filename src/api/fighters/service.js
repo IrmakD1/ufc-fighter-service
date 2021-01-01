@@ -1,3 +1,5 @@
+const _ = require('lodash')
+
 const store = require('../../store')
 const filterData = require('../../filterData')
 
@@ -22,4 +24,18 @@ const getFighters = async (fighterOneId, fighterTwoId, db) => {
     return fighterDetails 
 }
 
-module.exports = { getFighters }
+
+const getWeightClassFighters = async (weight, db) => {
+    const allRankedFighters = await store.getAllRankedFighters(db)
+    const fightersFromWeightClass = filterData.getWeightClassFighters(weight, allRankedFighters)
+    const sortedFighters = _.map(fightersFromWeightClass, fighter => {
+
+        const fighterObj = filterData.fighterDetails({ ...fighter.record, ...fighter.details })
+
+        return ({ ...fighterObj, rank: fighter.rank, weightclass: fighter.weightclass })
+    })
+    
+    return sortedFighters
+} 
+
+module.exports = { getFighters, getWeightClassFighters }

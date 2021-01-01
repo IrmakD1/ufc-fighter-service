@@ -21,6 +21,19 @@ const fightersRouter = (db) => {
         }
     })
 
+    router.get('/weightclass/:weightclass', async (req, res, next) => {
+        try {
+            const data = await service.getWeightClassFighters(req.params.weightclass, db)
+
+            logger().info('Successfully Returned Weightclass Fighter Details');
+            logger().info(data);
+
+            res.status(200).send(data);
+        } catch (err) {
+            next(err);
+        }
+    })
+
     return router
 }
 
