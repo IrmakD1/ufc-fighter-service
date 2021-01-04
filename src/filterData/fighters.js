@@ -61,7 +61,8 @@ const fighterDetails = (fighterDetails) => {
         name: sortName(fighterDetails.competitor.name),
         nationality: fighterDetails.info.birth_country !== undefined ? fighterDetails.info.birth_country : 'UNKOWN', 
         fightingOutOf: fighterDetails.info.fighting_out_of_city !== undefined ? fighterDetails.info.fighting_out_of_city : 'UNKOWN',
-        record: fighterDetails.record 
+        record: fighterDetails.record,
+        competitor_id: fighterDetails.competitor_id
     }
 
     const fighterStats = sortStats(fighterDetails.summaries, fighterDetails.competitor_id)

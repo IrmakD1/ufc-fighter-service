@@ -13,7 +13,6 @@ const fightersRouter = (db) => {
             const data = await service.getFighters(req.query.fighterOneId, req.query.fighterTwoId, db)
 
             logger().info('Successfully Returned Fighter Details');
-            logger().info(data);
 
             res.status(200).send(data);
         } catch (err) {
@@ -26,7 +25,6 @@ const fightersRouter = (db) => {
             const data = await service.getWeightClassFighters(req.params.weightclass, db)
 
             logger().info('Successfully Returned Weightclass Fighter Details');
-            logger().info(data);
 
             res.status(200).send(data);
         } catch (err) {
