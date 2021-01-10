@@ -26,7 +26,9 @@ const getFighters = async (fighterOneId, fighterTwoId, db) => {
 
 const sortFightersByRank = (fighters) => {
     let rankingList = []
-
+    if( fighters.length <= 1) {
+        throw Error('not enough fighters in the weightclass')
+    }
     _.forEach(fighters, fighter => {
         if(fighter.rank === 'Champion') {
             rankingList[0] = fighter
