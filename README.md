@@ -1,2 +1,2 @@
 # ufc-fighter-service
-service forgetting fighter and event stats
+service for getting fighter and event stats
